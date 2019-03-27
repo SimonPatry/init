@@ -1,0 +1,2 @@
+pour trouver l'hebergeur il faut utiliser la commande whois avec une des adresses de la commande nslookup puis grep 'OrgName' pour faciliter la lecture
+il s'agit ici d'amazon

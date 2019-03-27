@@ -1,0 +1,1 @@
+l'adresse ip du serveur DNS utilise par la machine est stocker dans /etc/resolv.conf et un cat permet de l'afficher.

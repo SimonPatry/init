@@ -1,0 +1,75 @@
+#!/bin/bash
+
+echo "Hello !! To start creating a makefile press <ENTER>"
+
+read answer
+
+echo "The following basic variables will be created: NAME, INCLUDE, OBJS, FLAGS"
+echo "Each of them will require specific informations you'll need to add, Press <ENTER> for the next step"
+read check_enter
+echo "What is the NAME ?"
+read NAME
+echo "Whats is the PATH for the Source(s) ? be carefull to add a "/" at the end"
+echo "Example: (good) /src/ | (wrong) /src"
+read SRC
+echo "What is the path for the include(s) ? same warning  for the / at the end"
+read INCLUDE
+echo "by default the rule OBJS content is: OBJS = \$(SRC:.c=.c)"
+echo "Add the flags you wish to compile with and press <ENTER>"
+read FLAGS
+echo "Here is the makefile content you added:
+
+NAME = $NAME
+SRC = $SRC
+INCLUDE = $INCLUDE
+OBJS = \$(SRC:.c=.o)
+FLAGS = $FLAGS
+"
+echo "We will add the rules now, press enter"
+read osef
+echo "by default the rule: all contain a call to the rule \$(NAME)"
+echo "fisrt add the other rules you wish to add in \$(NAME)"
+read -p "\$(NAME): " rules_called
+echo "Now add the action of the rule: "
+read -p "\$(NAME): $rules_called
+" rule_name_action
+read -p "clean: " clean
+read -p "fclean: " fclean
+read -p "re: " re
+echo "The set up for the rules is the following one :
+all: $all
+
+clean: $clean
+
+fclean: $clean
+
+re: $re
+"
+
+echo "NAME  = $NAME
+
+SRC = $SRC*.c
+
+INCLUDE = $INCLUDE*.h
+
+OBJS = \$(SRC:.c=.o)
+
+FLAGS = $FLAGS
+
+\$(NAME): $rules_called
+	$rule_name_action
+
+all: \$(NAME)
+
+clean:
+		$clean
+
+fclean: clean
+		$clean
+
+re: $re
+" > Makefile
+echo "----------> here is your MAKEFILE <----------!!!
+
+feel free to modify it, after all, this is just the basic input for a makefile !
+Be carefull about the wildcards and don't forget to add the header =)"

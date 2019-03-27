@@ -1,0 +1,6 @@
+la liste des services au demarrage est gerer par le systemd que l'on manipule avec la commande systemctl.
+on liste les services lancer par systemd puis on cherche ceux actives correspondants donc a ceux actives au demarrage.
+
+#systemctl list-unit-files --type=service | grep enabled
+
+il s'agit de fichier appelles daemon
